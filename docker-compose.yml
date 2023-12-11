@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  gary-shell-bot:
+    image: gary-shell-bot
+    restart: always
+
