@@ -1,14 +1,18 @@
+NAME := gary-shell-bot
+
 build:
-	docker build -t gary-shell .
+	docker build -t $(NAME) .
 
 run:
-	docker run -d --name gary-shell --restart always gary-shell
+	docker run -d --name $(NAME)_c $(NAME)
 
 stop:
-	docker stop gary-shell
+	docker stop $(NAME)_c
 
-up:
-	docker-compose up -d
+rm:
+	docker rm $(NAME)_c
 
-up:
-	docker-compose down
+rmi:
+	docker rmi $(NAME)
+
+reset: 	stop rm rmi build run
